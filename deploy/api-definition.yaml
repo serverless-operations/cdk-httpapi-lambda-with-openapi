@@ -1,0 +1,52 @@
+---
+openapi: 3.0.1
+info:
+  title: Hello API
+  description: An api always returns HELLO
+  version: 1.0.0
+
+paths:
+  /hello:
+    get:
+      summary: Returning Hello.
+      responses:
+        200:
+          $ref: '#/components/responses/GetHelloResponse'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - error
+        - message
+      properties:
+        error:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error message
+    Hello:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: message
+  responses:
+    InternalServerError:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    GetHelloResponse:
+      description: Get hello response.
+      content:
+         application/json:
+          schema:
+            $ref: '#/components/schemas/Hello'

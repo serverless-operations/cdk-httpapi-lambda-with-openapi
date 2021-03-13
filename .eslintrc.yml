@@ -1,0 +1,58 @@
+env:
+  browser: true
+  node: true
+  es6: true
+
+extends:
+  - 'eslint:recommended'
+  - 'plugin:jest/recommended'
+  - 'plugin:@typescript-eslint/recommended'
+  - 'plugin:@typescript-eslint/eslint-recommended'
+
+parserOptions:
+  parser: '@typescript-eslint/parser'
+  tsconfigRootDir: ./
+  sourceType: module
+
+rules:
+  array-bracket-spacing:
+    - error
+    - always
+  max-len:
+    - error
+    - code: 120
+      ignoreComments: true
+      ignoreTrailingComments: true
+      ignoreUrls: true
+      ignoreTemplateLiterals: true
+      ignoreRegExpLiterals: true
+  no-var: error
+  no-console: 0
+  semi:
+    - error
+    - never
+    - beforeStatementContinuationChars: never
+  space-before-blocks:
+    - error
+    - always
+  semi-spacing:
+    - error
+    - after: true
+      before: false
+  quotes:
+    - error
+    - single
+  '@typescript-eslint/indent':
+    - error
+    - 2
+  no-case-declarations: 0
+  jest/no-jasmine-globals: off
+  '@typescript-eslint/camelcase': off
+  '@typescript-eslint/no-non-null-assertion': off
+  '@typescript-eslint/ban-ts-ignore': off
+  '@typescript-eslint/interface-name-prefix': off
+  '@typescript-eslint/member-delimiter-style': off
+  '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/no-unused-vars': off
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/no-var-requires': off
